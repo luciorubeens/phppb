@@ -1,6 +1,10 @@
 Novo layout PHP-PB
 ==================
 
+Preview
+-------
+![PHP-PB](preview.png)
+
 Aprimorar
 ---------
 
