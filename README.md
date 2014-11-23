@@ -25,6 +25,9 @@ Modificar chave `navigation` no _config.yml:
 		- text: 'exemplo'
 		  url: '/exemplo'
 
+Publicar
+--------
+- `grunt build`
 
 Aprimorar
 ---------
