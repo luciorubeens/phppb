@@ -1,0 +1,13 @@
+---
+layout: post
+status: publish
+published: true
+title: Ata reunião - 26/05
+author: Abdala Cerqueira
+date: '2012-05-27 14:47:42 -0300'
+date_gmt: '2012-05-27 14:47:42 -0300'
+categories:
+- reuniao
+tags: []
+---
+<p>Segue a ata da última reunião para consulta: <a href="/files/ata-26052012.pdf">ata-26052012</a></p>

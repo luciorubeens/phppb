@@ -1,0 +1,12 @@
+// Requirements
+// ============
+
+@import "susy";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  global-border-box-sizing: border-box
+);
+
+@include border-box-sizing;

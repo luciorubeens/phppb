@@ -1,0 +1,43 @@
+/*==============================
+=            SCREEN            =
+==============================*/
+
+/*==============================
+=            LAYOUT            =
+==============================*/
+
+$bg-body: #eee;
+$ft-body: 'Open Sans', 'Tahoma', sans-serif;
+
+/* HEADER */
+
+$bg-header: rgb(72,122,169);
+$color-header: white;
+$height-header: 50px;
+
+/* ABOUT */
+
+$color-about: inherit;
+$ft-size-about: 14px;
+
+/* SIDEBAR */
+
+$bg-sidebar: transparent;
+$ft-size-tags: 12px;
+
+/* TITLE POST */
+
+$ft-weight-title: 600;
+$ft-size-title: 26px;
+$color-title: #333;
+
+/* CATEGORY POST */
+
+$ft-weight-category: 600;
+$ft-size-category: 14px;
+$color-category: rgb(81,106,133);
+
+/* DESCRIPTION POST */
+
+$ft-size-description: 16px;
+$color-description: #444;

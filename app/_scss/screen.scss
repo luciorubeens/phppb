@@ -1,0 +1,33 @@
+// Screen
+// ======
+
+@import "grids";
+@import "variables";
+
+
+.container {
+	@include container;
+}
+
+.wrapper {
+
+	margin-top: gutter() * 3;
+	@include container(85%);
+
+}
+
+.feed {
+	width:span(9);
+}
+
+.sidebar {
+	@include span(3 last);
+}
+
+.posts {
+	@include container(80%);
+}
+
+.pagination {
+	@include container(80%);
+}
