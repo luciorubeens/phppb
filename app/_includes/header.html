@@ -2,11 +2,11 @@
   <div class="menu">
   	<a class="item" href="{{ site.url }}">PHP-PB</a>
     <div class="right">
-      <a href="{{ site.url }}" class="item">INÍCIO</a>
-      <a href="#" class="item">PALESTRAS</a>
-      <a href="#" class="item">VAGAS DE EMPREGO</a>
-      <a href="#" class="item">HANGOUT</a>
+    {% assign url = page.url | remove: 'index.html' %}
+    {% for link in site.navigation %}
+      <a href="{{ link.url }}" class="item {% if url == link.url %}active{% endif %}">{{ link.text }}</a>
       </a>
+    {% endfor %}
     </div>
   </div>
 </div>

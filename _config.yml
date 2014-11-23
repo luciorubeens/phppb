@@ -3,9 +3,27 @@
 # 2. config.build.yml
 # 3. config.yml
 
+# PROPRIEDADES DA PÁGINA
+encoding: utf-8
 name: PHP-PB
+baseurl: "/"
 url: http://php-pb.net/
 description: Comunidade PHP na Paraíba
+
+permalink: /:year/:month/:day/:title/
+paginate: 10
+paginate_path: 'page:num'
+
+# MENU DE NAVEGAÇÃO
+navigation:
+- text: início
+  url: '/'
+- text: palestras
+  url: '/palestras'
+- text: vagas de emprego
+  url: '/vagas'
+- text: hangouts
+  url: '/hangouts'
 
 # Grunt handles images and assets.
 exclude: ['images', 'css', 'js', 'fonts',
@@ -16,26 +34,5 @@ include: ['.htaccess']
 # _config.build.yml sets future and show_drafts to false on `grunt build`
 future: true
 show_drafts: true
-
-permalink: /:year/:month/:day/:title/
-paginate: 10
-paginate_path: 'page:num'
-
-# Markdown library
 markdown: kramdown
-#   auto_ids: true
-#   footnote_nr: 1
-#   entity_output: as_char
-#   toc_levels: 1..6
-#   use_coderay: false
-#   coderay:
-#     coderay_wrap: div
-#     coderay_line_numbers: inline
-#     coderay_line_numbers_start: 1
-#     coderay_tab_width: 4
-#     coderay_bold_every: 10
-#     coderay_css: style
-
 pygments: true
-tag_page_layout: tag_page
-tag_page_dir: tag

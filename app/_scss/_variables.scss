@@ -6,6 +6,15 @@
 =            LAYOUT            =
 ==============================*/
 
+// LINK
+
+$color-link: #00c;
+$color-link-visited: #7A007A;
+$color-link-hover: darken(#00c,20%);
+$color-link-active: #444;
+
+// BODY
+
 $bg-body: #eee;
 $ft-body: 'Open Sans', 'Tahoma', sans-serif;
 
@@ -41,3 +50,28 @@ $color-category: rgb(81,106,133);
 
 $ft-size-description: 16px;
 $color-description: #444;
+
+// SOCIAL
+
+$ft-size-social: 30px;
+$color-social: $color-description;
+
+// PAGINATION
+
+$color-pagination: #333;
+
+// SEARCH - RESULT
+
+$ft-size-search-result-title: 20px;
+$color-search-result-title: $color-title;
+
+$color-search-result-url: #666;
+$ft-size-search-result-url: 14px;
+
+$ft-size-search-result-description: 15px;
+
+$bg-color-search-input: transparent;
+$bdrs-color-search-input: rgba(0,0,0,.2);
+
+// CLOUD TAGS
+$color-tags: $color-description;

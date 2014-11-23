@@ -7,10 +7,10 @@ title: PHP-PB
 	{% for post in paginator.posts %}
 	  <div class="post item">	
 	  	<div class="info">
-	  		<a href="/tag/{{post.categories | first | slugize }}.html" class="category">#{{ post.categories | first }}</a>
+	  		<a href="/search.html?category={{post.categories | first | slugify | url_encode | escape }}" class="category">#{{ post.categories | first }}</a>
 	  		<a href="{{ post.url }}" class="title">{{ post.title }}</a>
 	  	</div>
-	  	<div class="description">
+	  	<div class="description preview">
   			{{ post.excerpt }}
 	  	</div>
 	  	<div class="meta">
@@ -30,11 +30,27 @@ title: PHP-PB
 <div class="pagination horizontal list">
 	<center>
 		<div class="menu">
-			<div class="item"><i class="icon-left-open"></i></div>
+			{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path }}" class="item"><i class="icon-left-open"></i></a>
+			{% else %}
+			<a class="item"><i class="icon-left-open"></i></a>
+			{% endif %}
+
 			{% for page in (1..paginator.total_pages) %}
-			<div class="item {% if page == paginator.page %}active{% endif %}">{{ page }}</div>
+				{% if page == paginator.page %}
+				<a class="item active">{{page}}</a>
+				{% elsif page == 1 %}
+				<a href="{{ '/index.html' }}" class="item">{{ page }}</a>
+				{% else %}
+				<a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="item">{{ page }}</a>
+				{% endif %}
 			{% endfor %}
-			<div class="item"><i class="icon-right-open"></i></div>
+
+			{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path }}" class="item"><i class="icon-right-open"></i></a>
+			{% else %}
+			<a class="item"><i class="icon-right-open"></i></a>
+			{% endif %}
 		</div>
 	</center>
 </div>

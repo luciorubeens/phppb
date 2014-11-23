@@ -1,12 +1,17 @@
 @import "variables";
-@import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities";
 
-@include global-reset;
+@import "reset";
 
 a {
 	text-decoration: none;
+
+
+	&:link {color: $color-link}
+	&:visited {color: $color-link-visited}
+	&:hover {color: $color-link-hover}
+	&:active {color: $color-link-active}
 }
 
 
@@ -14,6 +19,8 @@ body {
 	background: $bg-body;
 	font-family: $ft-body;
 }
+
+.ishide {display:none}
 
 .horizontal.list {
 	display: block;
@@ -33,6 +40,7 @@ body {
 	background: $bg-header;
 	height: $height-header;
 	line-height: $height-header;
+	z-index: 999;
 	@include box-shadow(rgba(50, 50, 50, 0.45) 0px 2px 1px 0px);
 
 	.menu {
@@ -50,6 +58,7 @@ body {
 			padding:0 1em!important;
 			font-weight: 600;
 
+			&.active {background:rgba(lighten($bg-header,5%),.8)}
 			&:hover {background:darken($bg-header, 5%)}
 		}
 	}
@@ -69,8 +78,8 @@ body {
 
 	.logo {
 		background: url(/images/logotipo.png) no-repeat;
-		background-size: 170px 120px;
-		width: 170px;
+		background-size: 160px 120px;
+		width: 160px;
 		height: 120px;
 		margin:1em auto;
 		display: block;
@@ -84,7 +93,7 @@ body {
 	.item {
 		font-size: $ft-size-tags;
 		font-weight: bold;
-		color: $color-category;
+		color: $color-tags;
 		line-height: 1.5em;
 
 		&:hover {color:darken($color-category, 10%)}
@@ -99,8 +108,17 @@ body {
 	text-align: center;
 
 	.item {
-		color: #666;
-		font-size: 30px;
+		color: $color-social;
+		font-size: $ft-size-social;
+		padding: 0 .2em!important;
+
+		&:hover {
+			color: darken($color-social,10%);
+		}
+
+		&:active {
+			color: darken($color-social, 20%);
+		}
 	}
 }
 
@@ -119,17 +137,22 @@ body {
 
 		.item {
 			padding:.5em .8em!important;
+			color: $color-pagination;
 			margin:-2px;
 			text-align: center;
 			line-height: 100%;
 			vertical-align: middle;
+			border-bottom:2px solid transparent;
+			text-decoration: none;
 
 			&:not(:first-child) {
 				border-left:1px solid #ccc;
 			}
-
+			
+			&:hover {color:darken($color-pagination,10%)}
 			&.active {
-				border-bottom:2px solid #444;
+				border-bottom-color:#444;
+				font-weight: bold;
 			}
 		}
 	}
@@ -155,25 +178,12 @@ body {
 
 .post {
 
-	&.full {
-		font-size: $ft-size-description;
-		width: 80%;
-		margin: 0 auto;
-
-		.title {
-			margin:.8em 0;
-		}
-
-		ul,p {margin:.8em 0}
-
-		h2 {font-size: 17px}
-	}
-
 	.title {
 		font-weight: $ft-weight-title;
 		font-size: $ft-size-title;
 		color: $color-title;
 		display:inline-block;
+		line-height: $ft-size-title;
 	}
 
 	.category {
@@ -184,6 +194,11 @@ body {
 		text-transform: uppercase;
 		@include float(right);
 		vertical-align: middle;
+		line-height: $ft-size-title;
+
+
+		&:hover {color: darken($color-description,5%)}
+		&:active {color: darkem($color-description,10%)}
 	}
 
 	.description {
@@ -191,6 +206,12 @@ body {
 		font-size: $ft-size-description;
 		color: $color-description;
 		line-height: 1.5em;
+
+		&.preview {
+			p {
+				margin: 0!important;
+			}
+		}
 	}
 
 	.meta {
@@ -223,3 +244,169 @@ body {
 
 }
 
+.read {
+	
+	width:90%;
+	margin: 1em auto;
+
+	/* Vertical rhythm of 1.5em */
+	.title {font-size:2em}
+	p {
+	  margin: 1.5em 0;
+	  line-height: 1.5em;
+	  letter-spacing: 0.01rem;
+	  font-size: 1rem;
+	}
+
+	pre {
+	  padding: 1em;
+	  font-size: 13px;
+	}
+
+	/* Allow horizontal scrolling on wide snippets */
+	pre, code {
+	  overflow: auto;
+	  word-wrap: normal;
+	  white-space: pre;
+	}
+
+	/* Inline code */
+	code {
+	  padding: 0.2em 0.4em 0.1em 0.4em;
+	  font-size: 0.9em;
+	  color: #c7254e;
+	  background-color: #f9f2f4;
+	  white-space: nowrap;
+	  border-radius: 0.3em;
+	}
+
+	a:hover code {
+	  background-color: #f1eaec;
+	}
+
+	.highlight {
+	  position: relative;
+	  border-radius: 0.2em;
+	}
+
+	.highlight:before {
+	  content: "\f121";
+	  position: absolute;
+	  top: 50%;
+	  left: -1.7em;
+	  margin-top: -0.45em;
+	}
+
+	.highlight code {
+	  padding: 0;
+	  font-size: 1.0em;
+	  background-color: transparent;
+	  white-space: pre;
+	  border-radius: 0;
+	}
+
+	blockquote {
+	  position: relative;
+	  margin: 0;
+	  font-style: italic;
+	}
+
+	blockquote p:before {
+	  content: open-quote;
+	}
+
+	blockquote p:after {
+	  content: close-quote;
+	}
+
+	.tags:before, .comment-count:before, .highlight:before {
+	  font-family: "FontAwesome";
+	  font-size: 0.9em;
+	  font-weight: normal;
+	  color: #ddd;
+	  transition: color 0.2s;
+	}
+
+	.tags:hover:before, .comment-count:hover:before, .highlight:hover:before {
+	  color: #aaa;
+	}
+
+	/* List items are flush with the left text alignment */
+	ul, ol, dl {
+	  padding-left: 0;
+	}
+
+	li {
+	  margin-bottom: 0.75em;
+	}
+	
+	h2 {
+		margin: 1.5em 0;
+		font-weight: bold!important;
+		font-size: 18px!important;
+	}
+
+
+}
+
+.search {
+
+	&.input {
+		display: inline-block;
+		position: relative;
+		margin-bottom: 1em;
+
+		& > input {
+			padding-left: 2.5em!important;
+			padding-right: 1.2em!important;
+			margin: 0;
+			padding: .5em 1em;
+			font-size: 1em;
+			background-color: $bg-color-search-input;
+			border: 1px solid $bdrs-color-search-input;
+			outline: 0;
+			color: rgba(0,0,0,.7);
+			@include border-radius(.3125em);
+			width: 100%;
+			@include box-shadow($bdrs-color-search-input 0px 1px 1px 0px);
+		}
+
+		& > .icon {
+			cursor: default;
+			position: absolute;
+			opacity: .7;
+			top: 0;
+			right: auto;
+			left: 1px;
+			margin: 0;
+			width: 2.6em;
+			height: 100%;
+			padding-top: .65em;
+			text-align: center;
+			@include border-radius(.3125em 0 0 .3125em);
+		}
+	}
+	&.results {
+		width: 90%;
+		margin-right: 1em;
+
+		.item {
+			padding: .6em 0;
+
+			.title {
+				text-decoration: underline;
+				color: $color-search-result-title;
+				font-size: $ft-size-search-result-title;
+			}
+
+			.url {
+				color: $color-search-result-url;
+				font-size: $ft-size-search-result-url;
+			}
+
+			.description {
+				font-size: $ft-size-search-result-description;
+			}
+		}
+	}
+}
