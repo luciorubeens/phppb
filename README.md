@@ -1,14 +1,6 @@
 Novo layout PHP-PB
 ==================
 
-Novidades
----------
-
-- Paginação
-- Nuvem de tags
-- Barra de pesquisa
-- Pré-visualização de post
-
 Aprimorar
 ---------
 
